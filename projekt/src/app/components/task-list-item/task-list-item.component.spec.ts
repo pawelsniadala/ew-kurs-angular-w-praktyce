@@ -4,6 +4,7 @@ import {
   waitForAsync
 } from '@angular/core/testing';
 import { TaskListItemComponent } from './task-list-item.component';
+import { By } from '@angular/platform-browser';
 
 describe('TaskListItemComponent', () => {
   let component: TaskListItemComponent;
@@ -23,9 +24,14 @@ describe('TaskListItemComponent', () => {
   });
 
   it('should create', () => {
-    const html = fixture.nativeElement.innerHTML;
-
-    console.log(html);
     expect(component).toBeTruthy();
+  });
+
+  it('should render task name', () => {
+    // const elems = fixture.debugElement.queryAll(By.css('p'));
+    // console.log(elems);
+
+    const elem = fixture.debugElement.query(By.css('.message'));
+    expect(elem.nativeElement.innerText).toEqual('message works!');
   });
 });
