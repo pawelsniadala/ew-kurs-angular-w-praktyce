@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 
 export class TaskListItemComponent {
   message: string = 'Message works!';
+  editMode: boolean = false;
+
+  edit() {
+    this.editMode = true;
+  }
 }

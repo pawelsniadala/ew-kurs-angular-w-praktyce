@@ -38,5 +38,13 @@ describe('TaskListItemComponent', () => {
     fixture.autoDetectChanges();
     const elem = fixture.debugElement.query(By.css('.task-name'));
     expect(elem.nativeElement.innerText).toEqual('Updated name!');
-  })
+  });
+
+  it('should switch to edit when "edit" button is clicked', () => {
+    const editSpy = spyOn(component, 'edit').and.callThrough();
+    const button = fixture.debugElement.query(By.css('.edit-button'));
+    button.triggerEventHandler('click', {});
+    expect(editSpy).toHaveBeenCalled();
+    expect(component.editMode).toEqual(true);
+  });
 });
