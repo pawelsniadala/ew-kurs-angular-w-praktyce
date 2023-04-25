@@ -1,7 +1,14 @@
 <p class="task-name">
   {{ message }}
 </p>
-<button class="edit-button"
+<input
+  class="task-name-input"
+  type="text"
+  [value]="message"
+  (input)="message = $any($event.target).value"
+>
+<button
+  class="edit-button"
   (click)="edit()"
 >
   Edit
