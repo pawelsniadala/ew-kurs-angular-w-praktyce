@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './task-list-item.component.html',
   styleUrls: ['./task-list-item.component.scss']
 })
-export class TaskListItemComponent {
 
+export class TaskListItemComponent {
+  message: string = 'Message works!';
 }

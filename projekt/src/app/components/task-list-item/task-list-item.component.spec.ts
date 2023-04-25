@@ -10,7 +10,7 @@ describe('TaskListItemComponent', () => {
   let component: TaskListItemComponent;
   let fixture: ComponentFixture<TaskListItemComponent>;
 
-  beforeEach( waitForAsync(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TaskListItemComponent],
       imports: [],
@@ -21,6 +21,7 @@ describe('TaskListItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TaskListItemComponent);
     component = fixture.componentInstance;
+    fixture.autoDetectChanges();
   });
 
   it('should create', () => {
@@ -28,10 +29,14 @@ describe('TaskListItemComponent', () => {
   });
 
   it('should render task name', () => {
-    // const elems = fixture.debugElement.queryAll(By.css('p'));
-    // console.log(elems);
-
-    const elem = fixture.debugElement.query(By.css('.message'));
-    expect(elem.nativeElement.innerText).toEqual('message works!');
+    const elem = fixture.debugElement.query(By.css('.task-name'));
+    expect(elem.nativeElement.innerText).toEqual('Message works!');
   });
+
+  it('should render updated task name', () => {
+    component.message = 'Updated name!';
+    fixture.autoDetectChanges();
+    const elem = fixture.debugElement.query(By.css('.task-name'));
+    expect(elem.nativeElement.innerText).toEqual('Updated name!');
+  })
 });
