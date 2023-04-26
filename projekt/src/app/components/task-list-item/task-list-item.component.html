@@ -1,22 +1,32 @@
-<p class="task-name">
-  {{ message }}
-</p>
-<input
-  class="task-name-input"
-  type="text"
-  [(ngModel)]="message"
-  #taskName="ngModel"
-  required
->
-<div
-  class="error"
-  *ngIf="taskName.hasError('required')"
+<div *ngIf="!editMode">
+  <p class="task-name">
+    {{ task.title }}
+  </p>
+  <button
+    class="edit-button"
+    (click)="edit()"
   >
-  Field canot be empty
+    Edit
+  </button>
 </div>
-<button
-  class="edit-button"
-  (click)="edit()"
->
-  Edit
-</button>
+<div *ngIf="editMode">
+  <input
+    type="text"
+    class="task-name-input"
+    [(ngModel)]="task.title"
+    #taskName="ngModel"
+    required
+  >
+  <div
+    class="error"
+    *ngIf="taskName.hasError('required')"
+  >
+    Field canot be empty
+  </div>
+  <button
+    class="save-button"
+    (click)="save()"
+  >
+    Save
+  </button>
+</div>
