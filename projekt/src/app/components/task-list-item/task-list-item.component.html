@@ -4,9 +4,16 @@
 <input
   class="task-name-input"
   type="text"
-  [value]="message"
-  (input)="message = $any($event.target).value"
+  [(ngModel)]="message"
+  #taskName="ngModel"
+  required
 >
+<div
+  class="error"
+  *ngIf="taskName.hasError('required')"
+  >
+  Field canot be empty
+</div>
 <button
   class="edit-button"
   (click)="edit()"
