@@ -6,8 +6,8 @@ import {
 } from '@angular/core';
 
 interface Task {
-  id: number,
-  title: string
+  id: number;
+  title: string;
 };
 
 @Component({
