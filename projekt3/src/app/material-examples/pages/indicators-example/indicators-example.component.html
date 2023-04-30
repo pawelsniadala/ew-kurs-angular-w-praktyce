@@ -1,0 +1,35 @@
+<div class="examples-container">
+    <p>
+        indicators-example works!
+    </p>
+
+    <div class="icons-bar">
+        <mat-icon matTooltip="Main menu">menu</mat-icon>
+        <mat-icon matTooltip="Contacts" [matBadge]="2">person</mat-icon>
+        <mat-icon matTooltip="Messages" [matBadge]="1" matBadgeColor="accent">chat</mat-icon>
+        <mat-icon matTooltip="More options">more_vert</mat-icon>
+    </div>
+    <div class="icons-bar">
+        <mat-icon style="color: green;">done</mat-icon>
+        <mat-icon color="warn">check</mat-icon>
+    </div>
+
+    <p>
+        Inline icons <mat-icon inline>favorite</mat-icon> are also available
+    </p>
+
+
+</div>
+
+<style>
+    .examples-container {
+        max-width: 80%;
+        margin: 40px auto;
+    }
+
+    .icons-bar {
+        display: flex;
+        justify-content: space-around;
+        margin: 30px 0;
+    }
+</style>
